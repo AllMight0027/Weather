@@ -44,7 +44,6 @@ function load(data){
     }).join(' ')+"<br>"; 
     document.getElementById("temp").innerHTML=" Temperature: "+(parseFloat(data.main.temp)-273.15).toFixed(1).toString()+"&deg;C";
     document.getElementById("tempf").innerHTML=" Feels like: "+(parseFloat(data.main.feels_like)-273.15).toFixed(1).toString()+"&deg;C";
-    document.getElementById("tempr").innerHTML=" Minimum: "+(parseFloat(data.main.temp_min)-273.15).toFixed(1).toString()+"&deg;C<br> Maximum: "+(parseFloat(data.main.temp_max)-273.15).toFixed(1).toString()+"&deg;C";
     document.getElementById("humidity").innerHTML=" Humidity: "+data.main.humidity;
     var d = new Date(parseInt(data.sys.sunrise+parseInt(data.timezone))*1000);
     var e = new Date(parseInt(data.sys.sunset+parseInt(data.timezone))*1000);
