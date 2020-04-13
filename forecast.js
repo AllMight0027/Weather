@@ -51,5 +51,7 @@ function loaddata(data){
     document.getElementById("d1tm").innerHTML=" Max: "+(parseFloat(data.list[1].temp.max)).toFixed(1).toString()+"&deg;C";
     document.getElementById("d2tm").innerHTML=" Max: "+(parseFloat(data.list[2].temp.max)).toFixed(1).toString()+"&deg;C";
     document.getElementById("d3tm").innerHTML=" Max: "+(parseFloat(data.list[3].temp.max)).toFixed(1).toString()+"&deg;C";
+    document.getElementById("tempr").innerHTML=" Minimum: "+(parseFloat(data.list[0].temp.min)).toFixed(1).toString()+"&deg;C<br> Maximum: "+(parseFloat(data.list[0].temp.max)).toFixed(1).toString()+"&deg;C";
+
 
 }
