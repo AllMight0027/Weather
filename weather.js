@@ -12,7 +12,6 @@ function fetch(){
     http.onreadystatechange=function(){
         if(http.readyState==4 && http.status==200){
             data=JSON.parse(http.responseText);
-            console.log(data);
             load(data);
             forecast();
         }
@@ -47,7 +46,5 @@ function load(data){
     document.getElementById("humidity").innerHTML=" Humidity: "+data.main.humidity;
     var d = new Date(parseInt(data.sys.sunrise+parseInt(data.timezone))*1000);
     var e = new Date(parseInt(data.sys.sunset+parseInt(data.timezone))*1000);
-    console.log(parseInt(data.sys.sunrise+parseInt(data.timezone))*1000);
     document.getElementById("sun").innerHTML=" Sunrise: "+d.toUTCString().slice(-11,-4)+"<br> Sunset: "+ e.toUTCString().slice(-12,-4);
-
 }
