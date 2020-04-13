@@ -4,7 +4,6 @@ function forecast(){
     http.onreadystatechange=function(){
         if(http.readyState==4 && http.status==200){
             data=JSON.parse(http.responseText);
-            console.log(data)
             loaddata(data);
         }
         if(http.status==404){
