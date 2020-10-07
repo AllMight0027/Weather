@@ -1,95 +1,129 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-    <head>
-        <title>Weather Report</title>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-        <meta charset="UTF-8"> 
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap:700" rel="stylesheet">
-    </head>
-    <style>
-        .button {
-             background-color: black;
-             border: none;
-             color: white;
-             padding: 3px 12px;
-             text-align: center;
-             text-decoration: none;
-             display: inline-block;
-        }
-        *{
-            color: whitesmoke;
-            font-family: 'Open Sans', sans-serif;
-        }
-    </style>
-    <body id="main" style="background-image: url(https://images.unsplash.com/photo-1557683316-973673baf926?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1015&q=80); background-size: cover; background-repeat: no-repeat; background-attachment: fixed; background-size: 100% 100%;">
-        <div class="container-fluid">
-            <div class="row" style="border-bottom: cornsilk; border-width: 2px; border-bottom-style: solid;">
-                <div class="col" ><b><p style="color: coral; font-size: 50px;">WEATHER</p></b></div>
-            </div>
-            <div class="row">
-            <div class="col" style="text-align: center;">
-                <br>
-                <input type="text" id="cname" style="color: black;" placeholder="Enter the city name" autofocus>
-                <button type="submit" onclick="fetch()" id="myBtn" class="button">Search</button>
-                <div class="row"> &nbsp;   </div>
+  <head>
+    <title>Weather Report</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap:700"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-            </div>
-            </div>
-            <div class="row">&nbsp;</div>
-            
-            <div id="root" class="container-fluid" >
-                <div class="row">
-                    <div class="col-sm-12 col-md-2" style="margin-left: 1em; align-content: center; text-align: center;">
-                        <div class="row"><h4 id="pname"></h4></div>
-                        <div class="row" id="icon" style="align-content: center; text-align: center;"></div>
-                        <div class="row" style="align-content: center; text-align: center;"><h5 id="wmain" ></h5></div>
-                        <div class="row" style="align-content: center; text-align: center;"><h6 id="wdesc"></h6></div>
-                    </div>
-                    <div class="col-sm-12 col-md-3" style="margin-left: 1em;">
-                        <div class="row">&nbsp;</div>
-                        <div class="row"><h5 id="temp"></h5></div>
-                        <div class="row"><h5 id="tempf"></h5></div>
-                        <div class="row"><h5 id="tempr"></h5></div>
-                        <div class="row"><h5 id="humidity"></h5></div>
-                        <div class="row"><h5 id="sun"></h5></div>
-                    </div>
-                    <div class="col-sm-12 col-md-6" style="margin-left: 1em;" >
-                        <div class="container-fluid">
-                            <div class="row">&nbsp;</div>
-                            <div class="row">
-                            <div class="col-sm-12 col-md-3" style="background-color: rgba(255, 255, 255, 0.5); align-content: center; text-align: center; margin: 1px;">
-                                <div class="row" id="d1d" style="margin-left: 10px;"></div>
-                                <div class="row" id="d1i"></div>    
-                                <div class="row" id="d1de" style="margin-left: 10px;"></div>
-                                <div class="row" id="d1t" style="margin-left: 10px;"></div>
-                                <div class="row" id="d1tm" style="margin-left: 10px;"></div>  
-                            </div>
-                            <div class="col-sm-12 col-md-3" style="background-color: rgba(255, 255, 255, 0.5); text-align: center;align-content: center; margin: 1px;">
-                                <div class="row" id="d2d" style="margin-left: 10px;"></div>
-                                <div class="row" id="d2i"></div>
-                                <div class="row" id="d2de" style="margin-left: 10px;"></div>
-                                <div class="row" id="d2t" style="margin-left: 10px;"></div>
-                                <div class="row" id="d2tm" style="margin-left: 10px;"></div>  
-                            </div>
-                            <div class="col-sm-12 col-md-3" style="background-color: rgba(255, 255, 255, 0.5); text-align: center; margin: 1px;align-content: center;">
-                                <div class="row" id="d3d" style="margin-left: 10px;"></div>
-                                <div class="row" id="d3i"></div> 
-                                <div class="row" id="d3de" style="margin-left: 10px;"></div>
-                                <div class="row" id="d3t" style="margin-left: 10px;"></div>  
-                                <div class="row" id="d3tm" style="margin-left: 10px;"></div>                           
-                            </div>
-                        </div>
-
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-            
+  <body id="main">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12 text-center">
+          <b><p id="heading" style="font-size: 50px">WEATHER</p></b>
         </div>
-        <script src="weather.js"></script>
-        <script src="forecast.js"></script>
-        
-    </body>
+      </div>
+      <div class="row">
+        <div class="col" style="text-align: center">
+          <br />
+          <input
+            type="text"
+            id="cname"
+            placeholder="Enter the city name"
+            autofocus
+          />
+          <button type="submit" onclick="fetch()" id="myBtn" class="button">
+            Search
+          </button>
+          <div class="row">&nbsp;</div>
+        </div>
+      </div>
+      <div class="row">&nbsp;</div>
+
+      <div id="root" class="container-fluid">
+        <div class="row">
+          <div
+            class="col-sm-12 col-md-2"
+            style="margin-left: 1em; align-content: center; text-align: center"
+          >
+            <div class="row"><h4 id="pname"></h4></div>
+            <div
+              class="row"
+              id="icon"
+              style="align-content: center; text-align: center"
+            ></div>
+            <div class="row" style="align-content: center; text-align: center">
+              <h5 id="wmain"></h5>
+            </div>
+            <div class="row" style="align-content: center; text-align: center">
+              <h6 id="wdesc"></h6>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-3" style="margin-left: 1em">
+            <div class="row">&nbsp;</div>
+            <div class="row"><h5 id="temp"></h5></div>
+            <div class="row"><h5 id="tempf"></h5></div>
+            <div class="row"><h5 id="tempr"></h5></div>
+            <div class="row"><h5 id="humidity"></h5></div>
+            <div class="row"><h5 id="sun"></h5></div>
+          </div>
+          <div class="col-sm-12 col-md-6" style="margin-left: 1em">
+            <div class="container-fluid">
+              <div class="row">&nbsp;</div>
+              <div class="row">
+                <div
+                  class="col-sm-12 col-md-3"
+                  style="
+                    background-color: rgba(255, 255, 255, 0.5);
+                    align-content: center;
+                    text-align: center;
+                    margin: 1px;
+                  "
+                >
+                  <div class="row" id="d1d" style="margin-left: 10px"></div>
+                  <div class="row" id="d1i"></div>
+                  <div class="row" id="d1de" style="margin-left: 10px"></div>
+                  <div class="row" id="d1t" style="margin-left: 10px"></div>
+                  <div class="row" id="d1tm" style="margin-left: 10px"></div>
+                </div>
+                <div
+                  class="col-sm-12 col-md-3"
+                  style="
+                    background-color: rgba(255, 255, 255, 0.5);
+                    text-align: center;
+                    align-content: center;
+                    margin: 1px;
+                  "
+                >
+                  <div class="row" id="d2d" style="margin-left: 10px"></div>
+                  <div class="row" id="d2i"></div>
+                  <div class="row" id="d2de" style="margin-left: 10px"></div>
+                  <div class="row" id="d2t" style="margin-left: 10px"></div>
+                  <div class="row" id="d2tm" style="margin-left: 10px"></div>
+                </div>
+                <div
+                  class="col-sm-12 col-md-3"
+                  style="
+                    background-color: rgba(255, 255, 255, 0.5);
+                    text-align: center;
+                    margin: 1px;
+                    align-content: center;
+                  "
+                >
+                  <div class="row" id="d3d" style="margin-left: 10px"></div>
+                  <div class="row" id="d3i"></div>
+                  <div class="row" id="d3de" style="margin-left: 10px"></div>
+                  <div class="row" id="d3t" style="margin-left: 10px"></div>
+                  <div class="row" id="d3tm" style="margin-left: 10px"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="weather.js"></script>
+    <script src="forecast.js"></script>
+  </body>
 </html>
